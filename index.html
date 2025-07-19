@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shot Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>🏀 Shot Chart Log</h1>
+    <div id="court-container"></div>
+
+    <div id="stats">
+        <h2>📊 Stats</h2>
+        <p>Total Shots: <span id="total">0</span></p>
+        <p>Makes: <span id="makes">0</span></p>
+        <p>Misses: <span id="misses">0</span></p>
+        <p>FG%: <span id="fg">0</span></p>
+        <button id="reset-btn">Reset Chart</button>
+    </div>
+
+    <div id="filters">
+      <button data-filter="all">All</button>
+      <button data-filter="make">Makes</button>
+      <button data-filter="miss">Misses</button>
+      <button id="export-btn">Export CSV</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/basketball-court@1.1.2/dist/basketball-court.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
