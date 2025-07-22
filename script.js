@@ -2,6 +2,8 @@ window.onload = () => {
     const courtContainer = document.getElementById("court-container");
     const courtSvg = basketballCourt({ width: 600, type: "nba", fullCourt: true }).toDom();
     courtSvg.id = "court";
+    courtSvg.setAttribute("viewbox", "0 0 600 1130");
+    courtSvg.setAttribute("preserveAspectRatio", "xMidYMid meet");
     courtContainer.appendChild(courtSvg);
     const totalSpan = document.getElementById("total");
     const makesSpan = document.getElementById("makes");
