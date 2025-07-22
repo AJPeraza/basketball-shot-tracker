@@ -1,6 +1,6 @@
 window.onload = () => {
     const courtContainer = document.getElementById("court-container");
-    const courtSvg = basketballCourt({ width: 600, type: "nba" }).toDom();
+    const courtSvg = basketballCourt({ width: 600, type: "nba", fullCourt: true }).toDom();
     courtSvg.id = "court";
     courtContainer.appendChild(courtSvg);
     const totalSpan = document.getElementById("total");
@@ -58,7 +58,7 @@ window.onload = () => {
         shot.setAttribute("cx", x);
         shot.setAttribute("cy", y);
         shot.setAttribute("r", 5);
-        shot.setAttribute("fill", result === 'make' ? "green" : "red");
+        shot.setAttribute("fill", result === 'make' ? "var(--make-color)" : "var(--miss-color)");
         shot.setAttribute("opacity", 0.8);
         courtSvg.appendChild(shot);
     }
@@ -122,5 +122,11 @@ window.onload = () => {
         a.click();
 
         URL.revokeObjectURL(url);
+    });
+
+    const courtLines = courtSvg.querySelectorAll("line, circle, path");
+    courtLines.forEach(el => {
+        el.setAttribute("stroke", "var(--court-line)");
+        el.setAttribute("stroke-width", "2");
     });
 };
