@@ -9,6 +9,13 @@
     --button-hover: #333;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     font-family: 'Segoe UI', sans-serif;
     background-color: var(--bg);
@@ -23,15 +30,26 @@ h1, h2 {
 }
 
 #court-container {
-  width: 610px;
+  width: 100%;
+  max-width: 600px;
   height: 565px;
-  margin: 20px auto;
+  margin: 0 auto;
   overflow: hidden;
   position: relative;
   cursor: crosshair;
   border: 2px solid var(--court-line);
   border-radius: 12px;
   background-color:  #111;
+}
+
+#court {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: translateY(-713px);
+    transform-origin: top center;
+    transition: transform 0.3s ease;
+    /* Height omitted: SVG gets height from basketballCourt() generator */
 }
 
 #stats {
@@ -92,21 +110,51 @@ h1, h2 {
     background-color: var(--button-hover);
 }
 
-#court {
-    width: 610px;
-    max-width: 100vw;
-    display: block;
-    transform: translateY(-713px);
-    transition: transform 0.3s ease;
-    /* Height omitted: SVG gets height from basketballCourt() generator */
+#result-popup {
+    position: absolute;
+    background: #222;
+    border: 1px solid #ccc;
+    padding: 6px;
+    border-radius: 6px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+#result-popup.hidden {
+    display: none;
+}
+
+#result-popup button {
+    background: #333;
+    color:white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#result-popup button:hover {
+    background: #555;
+}
+
+#court line,
+#court path,
+#court circle,
+#court rect {
+    stroke: var(--court-line);
 }
 
 @media (max-width: 650px) {
     #court-container {
-        width: 100%;
+        width: 95%;
+        max-width: 100vw;
         height: 565px;
         overflow: hidden;
         position: relative;
+        margin: 0 auto;
+        padding: 0;
         border: 2px solid red;
     }
 

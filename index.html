@@ -8,6 +8,12 @@
   </head>
   <body>
     <h1>🏀 Shot Chart Log</h1>
+
+    <div id="player-selector">
+      <label for="player-name">Player:</label>
+      <input type="text" id="player-name" placeholder="Enter player name" />
+    </div>
+
     <div id="court-container">
       <svg id="court"></svg>
     </div>
@@ -26,6 +32,11 @@
       <button data-filter="make">Makes</button>
       <button data-filter="miss">Misses</button>
       <button id="export-btn">Export CSV</button>
+    </div>
+
+    <div id="result-popup" class="hidden">
+      <button id="made-btn" data-result="make">✅ Made</button>
+      <button id="miss-btn" data-result="miss">❌ Missed</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/basketball-court@1.1.2/dist/basketball-court.min.js"></script>
